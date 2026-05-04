@@ -1,0 +1,122 @@
+@use '../utils/index' as *;
+// 버튼
+@use './button';
+// // 테이블
+@use './data-table';
+// // pagination
+@use './pagination';
+// // input
+@use './input';
+// // 셀렉트박스
+@use './_selectbox';
+
+// typo
+.font {
+  &.warning {
+    color: $warning;
+  }
+  &.slightly {
+    color: $slightly;
+  }
+  &.primary {
+    color: $primary;
+  }
+  &.danger {
+    color: $danger;
+  }
+  &.dark {
+    color: $dark;
+  }
+  &.lightSlightly {
+    color: $lightSlightly;
+  }
+}
+
+// 스위치 아이콘
+.switch-container {
+  display: flex;
+  align-items: center;
+  .switch-icon {
+    position: relative;
+  }
+  .switch-input {
+    @include blind;
+    &:focus-visible {
+      + .switch-label {
+        outline: auto;
+        outline-color: -webkit-focus-ring-color;
+      }
+    }
+    &:checked {
+      + .switch-label {
+        .switch-button {
+          background: $primary;
+        }
+        .btn-on-off {
+          left: rem(17px);
+        }
+      }
+    }
+  }
+  .switch-label {
+    display: flex;
+    align-items: center;
+  }
+  .switch-button {
+    transition: 0.2s;
+    display: block;
+    width: rem(32px);
+    height: rem(18px);
+    position: relative;
+    cursor: pointer;
+    background: #999;
+    border-radius: 50px;
+  }
+  .btn-on-off {
+    transition: 0.2s;
+    position: absolute;
+    top: 50%;
+    left: rem(3px);
+    transform: translateY(-50%);
+    display: inline-block;
+    width: rem(12px);
+    height: rem(12px);
+    border-radius: 50%;
+    background: #fff;
+    text-indent: -9999px;
+  }
+
+  .switch-text {
+    margin-left: rem(8px);
+    font-size: rem(15px);
+    cursor: pointer;
+  }
+}
+
+// 별점선택
+.rating-select-container {
+  display: flex;
+  input {
+    @include blind;
+  }
+  label {
+    transition: 0.1s;
+    display: block;
+    position: relative;
+    width: rem(46px);
+    height: rem(44px);
+    margin-left: rem(8px);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    @include background-image('components/icon-star-empty.svg');
+    text-indent: -9999px;
+    cursor: pointer;
+    &.checked {
+      @include background-image('components/icon-star-full.svg');
+    }
+    &:nth-of-type(1) {
+      margin-left: 0;
+    }
+  }
+}

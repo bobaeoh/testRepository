@@ -1,0 +1,313 @@
+@use '../utils/index' as *;
+
+// selectric 셀렉트박스
+.selectric-container {
+  position: relative;
+  &.active {
+    &.init-before {
+      .selectric {
+        .label {
+          color: #999;
+        }
+      }
+    }
+    &.open {
+      .select-label {
+        z-index: 5;
+        color: #2c599d;
+        .required {
+          color: #2c599d;
+        }
+      }
+    }
+    .select-label {
+      z-index: 3;
+      left: rem(16px);
+      transform: translate3d(0, -8px, 0) scale(0.75);
+      padding: 0 rem(4px);
+      background-color: #fff;
+    }
+    .selectric {
+      .label {
+        color: #000;
+      }
+    }
+  }
+  &.disabled {
+    .select-label {
+      color: #999;
+      background-color: transparent;
+      .required {
+        color: #999;
+      }
+    }
+  }
+  &.error {
+    .selectric {
+      border-color: $danger;
+    }
+  }
+
+  .selectric-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+  .selectric {
+    border: 1px solid #e0e0e3;
+    padding-left: rem(20px);
+    padding-right: rem(52px);
+    border-radius: rem(4px);
+    background-color: #fff;
+    .button {
+      position: absolute;
+      top: 50%;
+      right: rem(20px);
+      transform: translateY(-50%);
+      @include size(rem(20px));
+      text-indent: -9999px;
+      background-color: transparent;
+      &:after {
+        @include size(rem(20px));
+        border: 0;
+        @include background('components/icon-selectbox-arrow.png');
+        background-size: cover;
+      }
+    }
+    .label {
+      margin: 0;
+      color: #999;
+    }
+    .icon-error {
+      display: none;
+      @include size(rem(24px));
+      position: absolute;
+      top: 50%;
+      right: rem(52px);
+      z-index: 2;
+      transform: translateY(-50%);
+      @include background('icon/icon-alert-triangle-red-24x24.png');
+      background-size: cover;
+    }
+  }
+  .selectric-above {
+    .selectric-items {
+      margin-bottom: rem(7px);
+    }
+  }
+  .required {
+    display: inline-block;
+    font-size: rem(16px);
+    vertical-align: middle;
+    color: #999;
+  }
+  .selectric-open {
+    z-index: 4;
+    .selectric {
+      border-color: #2c599d;
+      .label,
+      .required {
+        color: #2c599d;
+      }
+    }
+    .button {
+      overflow: hidden;
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .selectric-disabled {
+    opacity: 1;
+    .selectric {
+      background-color: #fafafa;
+      .label {
+        color: #999;
+      }
+    }
+  }
+  .selectric-first-show {
+    .selectric-scroll {
+      li {
+        &:first-child {
+          display: block;
+        }
+      }
+    }
+  }
+  .selectric-scroll {
+    li {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+  .select-label {
+    position: absolute;
+    top: 0;
+    left: rem(20px);
+    z-index: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: left top;
+    font-size: rem(16px);
+    color: #000;
+    @include ellipsis;
+    .required {
+      color: #000;
+    }
+  }
+  .selectric-items {
+    max-height: rem(225px);
+    overflow: auto;
+    border-radius: 5px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px 0px #00000029;
+
+    li {
+      &.selected {
+        background-color: #2c599d !important;
+        color: #fff !important;
+      }
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+  .selectric-small {
+    .label {
+      height: rem(30px);
+      line-height: rem(30px);
+      font-size: rem(14px);
+    }
+    .selectric-items {
+      li {
+        padding: rem(12px);
+        font-weight: 300;
+        font-size: rem(14px);
+      }
+    }
+  }
+  .selectric-medium {
+    .label {
+      height: rem(54px);
+      line-height: rem(54px);
+      font-size: rem(16px);
+    }
+    .selectric-items {
+      li {
+        padding: rem(17px) rem(20px);
+        font-size: rem(16px);
+      }
+    }
+  }
+  .selectric-large {
+    .label {
+      height: rem(52px);
+      line-height: rem(52px);
+      font-size: rem(18px);
+    }
+    .selectric-items {
+      li {
+        padding: rem(16px) rem(18px);
+        font-weight: 300;
+        font-size: rem(18px);
+      }
+    }
+  }
+}
+
+// 일반 셀렉트박스
+$selectbox-small: 32px;
+$selectbox-medium: 42px;
+$selectbox-large: 52px;
+.select-box-container {
+  .form-label {
+    display: block;
+    padding-bottom: rem(3px);
+    font-size: rem(16px);
+    .required {
+      display: inline-block;
+      margin-left: rem(3px);
+      font-weight: 700;
+      font-size: rem(16px);
+      color: $primary;
+      vertical-align: middle;
+    }
+  }
+  .form-select {
+    width: 100%;
+    padding-right: rem(20px);
+    border: 0;
+    border-bottom: 1px solid #dbdee5;
+    color: #000;
+    @include background('components/icon-selectbox-arrow.svg');
+    background-position: center right;
+    background-size: rem(10px) rem(10px);
+    appearance: none;
+  }
+  &.small {
+    .form-select {
+      height: rem($selectbox-small);
+      line-height: rem($selectbox-small);
+      font-size: rem(13px);
+      option {
+        font-size: rem(13px);
+      }
+    }
+  }
+  &.medium {
+    .form-select {
+      height: rem($selectbox-medium);
+      line-height: rem($selectbox-medium);
+      font-size: rem(16px);
+      option {
+        font-size: rem(16px);
+      }
+    }
+  }
+  &.large {
+    .form-select {
+      height: rem($selectbox-large);
+      line-height: rem($selectbox-large);
+      font-size: rem(18px);
+      option {
+        font-size: rem(18px);
+      }
+    }
+  }
+  &.active {
+    &.float {
+      .form-label {
+        transform: translate3d(0, -20px, 0) scale(0.8);
+      }
+    }
+  }
+  &.float {
+    position: relative;
+    .form-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      width: 100%;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform-origin: left top;
+      font-size: rem(18px);
+      color: #000;
+      @include ellipsis;
+    }
+    .form-select {
+      position: relative;
+      z-index: 2;
+      background-color: #fff;
+      option {
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,423 @@
+@use '../utils/index' as *;
+
+$input-cover-height: 56px;
+
+// input
+.input-cover {
+  position: relative;
+  &.float {
+    position: relative;
+    @include box-sizing();
+    &.active {
+      .form-label {
+        padding: 0 rem(4px);
+        left: rem(16px);
+        transform: translate3d(0, -26px, 0) scale(0.75);
+        color: #000;
+        background-color: #fff;
+      }
+      .required {
+        color: #000;
+      }
+      .form-input {
+        &[type='date'] {
+          color: #000;
+        }
+        @include placeholder(#999);
+      }
+    }
+    .form-label {
+      position: absolute;
+      top: rem(17px);
+      left: rem(20px);
+      z-index: 2;
+      width: auto;
+      margin-bottom: 0;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transform-origin: left top;
+      @include ellipsis();
+      background-color: #fff;
+    }
+    .etc-right {
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+    }
+  }
+  &.focus,
+  &.open-datepicker {
+    border-color: #2c599d;
+    .form-label,
+    .required {
+      color: #2c599d !important;
+    }
+    .form-input {
+      border-color: #2c599d;
+    }
+  }
+  &.right-space {
+    &.small {
+      .form-input {
+        padding-right: rem(56px);
+      }
+    }
+    .form-input {
+      padding-right: rem(92px);
+    }
+  }
+  &.error {
+    .icon-error {
+      display: block;
+    }
+    .form-input {
+      padding-right: rem(50px);
+      border-color: $danger;
+    }
+  }
+  .cover-inner {
+    position: relative;
+  }
+  .form-input {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: rem($input-cover-height);
+    line-height: rem($input-cover-height - 2px);
+    padding: 0 rem(20px);
+    border: 1px solid #e0e0e3;
+    border-radius: rem(4px);
+    font-size: rem(16px);
+    background-color: #fff;
+    @include placeholder(#999);
+    &:read-only,
+    &:disabled {
+      color: #999 !important;
+      background-color: #fafafa;
+      &.datepicker-input {
+        color: #000 !important;
+        background-color: transparent;
+      }
+      &.result-file-input {
+        color: #000 !important;
+        background-color: transparent;
+      }
+    }
+  }
+  .form-label {
+    display: block;
+    font-size: rem(16px);
+    margin-bottom: rem(6px);
+    color: #999;
+  }
+  .required {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: rem(16px);
+    color: #999;
+  }
+  .etc-right {
+    display: flex;
+    align-items: center;
+    gap: rem(8px);
+    position: absolute;
+    z-index: 2;
+    bottom: rem(15px);
+    right: rem(20px);
+  }
+  .mode-text {
+    font-size: rem(16px);
+  }
+  .btn-type-change {
+    @include size(rem(24px));
+    @include background-image('icon/icon-eye-off.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    text-indent: -9999px;
+    color: transparent;
+    &.type-text {
+      @include background-image('icon/icon-eye-on.png');
+    }
+  }
+  .file-wrapper {
+    display: flex;
+    gap: rem(8px);
+    position: relative;
+    .file-input {
+      @include blind();
+      top: 0;
+      right: 0;
+      z-index: 1;
+      &:focus-visible {
+        + .btn {
+          outline: 2px solid #000;
+        }
+      }
+    }
+    .btn {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: rem(120px);
+      font-size: rem(16px);
+    }
+  }
+  &.disable-active {
+    &.float {
+      .form-label {
+        padding: 0 rem(4px);
+        left: rem(16px);
+        transform: translate3d(0, -26px, 0) scale(0.75);
+        // background-color: transparent;
+        color: #999;
+      }
+    }
+    .required {
+      color: #999;
+    }
+  }
+}
+
+.form-btn-with-container {
+  display: flex;
+  gap: rem(8px);
+  .input-cover,
+  .selectric-container {
+    flex-grow: 1;
+  }
+  .btn {
+    width: 100%;
+    flex-shrink: 0;
+  }
+  &.medium {
+    .btn {
+      max-width: rem(120px);
+    }
+  }
+}
+
+// radio,checkbox
+$radioSize: 20px; // 라디오 이미지 사이즈
+$roundCheckboxSize: 24px; // 체크박스 이미지 사이즈
+$squareCheckboxSize: 24px; // 체크박스 이미지 사이즈
+$labelFontSize: 16px; // 라벨 폰트 사이즈
+$checkedBg: #000;
+.selector-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: rem(10px);
+  &.horizontal {
+    flex-direction: row;
+    column-gap: rem(20px);
+  }
+}
+.selector-cover {
+  line-height: 1;
+  font-size: 0;
+  input {
+    position: absolute;
+    @include blind();
+    &:focus-visible {
+      + .selector-text {
+        outline: auto;
+        outline-color: -webkit-focus-ring-color;
+      }
+    }
+  }
+  .label {
+    display: inline-flex;
+    position: relative;
+    cursor: pointer;
+  }
+  .selector-text {
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    font-size: rem($labelFontSize);
+    word-break: keep-all;
+  }
+  .selector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #e0e0e3;
+    background-color: transparent;
+    box-sizing: border-box;
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+    }
+  }
+  // 체크박스
+  &.checkbox {
+    .selector-text {
+    }
+    .selector {
+      border-radius: rem(4px);
+      &:after {
+        display: none;
+        left: calc(50% - #{rem(5px)});
+        top: 50%;
+        width: rem(5px);
+        height: rem(10px);
+        border: solid #000;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg) translate(-50%, -50%);
+      }
+    }
+    &.round {
+      .selector-text {
+        padding-left: rem($roundCheckboxSize + 8px);
+        min-height: rem($roundCheckboxSize);
+      }
+      .selector {
+        @include size(rem($roundCheckboxSize));
+        border: 0;
+        border-radius: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        @include background-image('components/icon-checkbox-round-off.png');
+      }
+      input {
+        &:checked {
+          + .selector-text {
+            .selector {
+              @include background-image('components/icon-checkbox-round-on.png');
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.square {
+      .selector-text {
+        padding-left: rem($squareCheckboxSize + 8px);
+        min-height: rem($squareCheckboxSize);
+      }
+      .selector {
+        @include size(rem($squareCheckboxSize));
+        border: 0;
+        border-radius: 0;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        @include background-image('components/icon-checkbox-square-off.png');
+      }
+      input {
+        &:checked {
+          + .selector-text {
+            .selector {
+              @include background-image('components/icon-checkbox-square-on.png');
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.solo {
+      .selector-text {
+        padding-left: rem($roundCheckboxSize);
+      }
+    }
+  }
+  // 라디오버튼
+  &.radio {
+    input {
+      &:checked {
+        + .selector-text {
+          .selector {
+            background-color: #fff;
+            border-color: #000;
+            &:after {
+              background-color: #000;
+            }
+          }
+        }
+      }
+    }
+    .selector-text {
+      padding-left: rem(28px);
+      min-height: rem($radioSize);
+    }
+    .selector {
+      height: rem($radioSize);
+      width: rem($radioSize);
+      border-radius: 50%;
+      &:after {
+        @include centerMode();
+        width: rem(8px);
+        height: rem(8px);
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    }
+    &.solo {
+      .selector-text {
+        padding-left: rem(32px);
+      }
+    }
+  }
+}
+.form-guide-text {
+  display: block;
+  font-weight: 300;
+  margin-top: rem(12px);
+  font-size: rem(15px);
+  + .form-guide-text {
+    margin-top: rem(4px);
+  }
+}
+
+.form-textarea {
+  display: block;
+  height: rem(120px);
+  padding: rem(12px) rem(20px);
+  border: 1px solid #ddd;
+  border-radius: rem(8px);
+  font-size: rem(16px);
+  resize: none;
+  overflow: auto;
+  @include placeholder(#999);
+  &.error {
+    border-color: $primary;
+  }
+  &.sm {
+    height: rem(80px);
+    font-size: rem(14px);
+  }
+  &.md {
+    height: rem(120px);
+  }
+  &.lg {
+    height: rem(200px);
+  }
+  &.xl {
+    height: rem(300px);
+  }
+  &.full {
+    width: 100% !important;
+  }
+  &:read-only,
+  &:disabled {
+    background-color: #f1f1f1;
+  }
+}
+
+.length-check-cover {
+  .count {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: rem(12px);
+    font-size: rem(14px);
+    color: #999;
+  }
+}

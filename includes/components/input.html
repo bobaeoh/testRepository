@@ -1,0 +1,321 @@
+<div class="component-content" id="componentInput">
+  <div class="component-item">
+    <h2 class="component-title">폼 input</h2>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 일반</h3>
+      <ul class="component-sub-text">
+        <li>label이 있는 일반적인 input 입니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <div class="input-cover">
+            <label for="username" class="form-label">이름<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="text" id="username" name="username" title="이름" class="form-input input-active" autocomplete="off" maxlength="10" />
+            </div>
+            <div class="form-guide-text font warning">※ 안내문구입니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 플로팅 input</h3>
+      <ul class="component-sub-text">
+        <li>label이 포커스 됐을때 플로팅되는 input 입니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <h4>- 숫자만 입력 input</h4>
+
+          <div class="input-cover float">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="numberOnly" class="form-label">숫자만입력<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="tel" id="numberOnly" name="numberOnly" title="숫자만입력" class="form-input input-active" oninput="this.value = window.onlyNumber(this.value)" maxlength="13" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <h4>- 숫자만 입력 + 하이픈 자동입력 input</h4>
+
+          <div class="input-cover float">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <div class="cover-inner">
+              <label for="phone" class="form-label">연락처<span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" title="연락처" class="form-input input-active" oninput="window.autoHyphen(this)" maxlength="13" autocomplete="off" />
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+          <br />
+
+          <h4>- 숫자만 입력 + 콤마 자동입력 input</h4>
+
+          <div class="input-cover float right-space small">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="annualIncome" class="form-label">희망연봉(만원)<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="text" id="annualIncome" name="annualIncome" title="희망연봉(만원)" class="form-input input-active" oninput="this.value = window.numberWithCommas(window.onlyNumber(this.value))" autocomplete="off" />
+              <span class="etc-right">
+                <span class="mode-text">만원</span>
+              </span>
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <h4>- 달력 년+월+일 input</h4>
+
+          <div class="input-cover float">
+            <label for="dateInput" class="form-label">달력 input<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="tel" class="form-input input-active" id="dateInput" maxlength="8" placeholder="YYYY-MM-DD" oninput="window.autoDateHyphen(this)" />
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <h4>- 달력 년+월 input</h4>
+
+          <div class="input-cover float">
+            <label for="dateInput" class="form-label">달력 input<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="tel" class="form-input input-active" id="dateInput" maxlength="6" placeholder="YYYY-MM" oninput="window.autoDateMonthHyphen(this)" />
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <div class="input-cover float right-space">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="recommendEmail" class="form-label">추천인 이메일<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="tel" id="recommendEmail" name="recommendEmail" title="추천인 이메일" class="form-input input-active" autocomplete="off" />
+              <span class="etc-right">
+                <span class="mode-text">@sk.com</span>
+              </span>
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <div class="input-cover float right-space small type-change">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="password" class="form-label">비밀번호<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="password" title="비밀번호" class="form-input input-active" autocomplete="off" />
+              <span class="etc-right">
+                <button type="button" class="btn-type-change">비밀번호 보기/감추기</button>
+              </span>
+            </div>
+          </div>
+
+          <br />
+
+          <!-- readonly 또는 disable일경우 -->
+          <div class="input-cover float">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="username03" class="form-label">성명<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="text" id="username03" name="username03" title="성명" class="form-input input-active" value="홍길동" disabled autocomplete="off" />
+              <span class="etc-right"> </span>
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+
+          <br />
+
+          <!-- error일경우 error 클래스 추가 -->
+          <div class="input-cover float error">
+            <!-- label의 for값과 input id값이 동일해야합니다. -->
+            <label for="username04" class="form-label">성명<span class="required">*</span></label>
+            <div class="cover-inner">
+              <input type="text" id="username04" name="username04" title="성명" class="form-input input-active" autocomplete="off" />
+              <span class="etc-right"> </span>
+            </div>
+          </div>
+          <div class="form-guide-text">※ 안내문구입니다.</div>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 버튼 input</h3>
+      <ul class="component-sub-text">
+        <li>버튼이 함께 있는 input 입니다.</li>
+        <li>버튼의 사이즈에 따라 small / medium / large 로 구분할 수 있습니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <div class="form-btn-with-container medium">
+            <div class="input-cover medium">
+              <div class="cover-inner">
+                <input type="text" id="address01" name="address01" title="주소" class="form-input input-active" placeholder="주소" readonly autocomplete="off" />
+              </div>
+            </div>
+            <button type="button" class="btn medium">우편번호 찾기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 달력 input</h3>
+      <ul class="component-sub-text">
+        <li>달력이 포함되어있는 input 입니다.</li>
+        <li>달력은 년 / 월 / 시간 달력으로 구분되어 있습니다.</li>
+        <li><span class="font-class">.month</span>클래스를 추가하면 월 달력이 됩니다.</li>
+        <li><span class="font-class">.time</span>클래스를 추가하면 시간 달력이 됩니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <div class="datepicker-container">
+            <div class="datepicker-item">
+              <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                <label for="datePicker01" class="form-label">전체 달력 input<span class="required">*</span></label>
+                <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker01" autocomplete="off" />
+                <span class="tui-ico-date"></span>
+              </div>
+              <div class="tui-datepicker-wrapper"></div>
+            </div>
+          </div>
+          <br /><br />
+          <div class="datepicker-container">
+            <!-- 시간 달력은 time 클래스 추가 -->
+            <div class="datepicker-item time">
+              <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                <label for="datePicker02" class="form-label">시간 달력 input<span class="required">*</span></label>
+                <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker02" autocomplete="off" />
+                <span class="tui-ico-date"></span>
+              </div>
+              <div class="tui-datepicker-wrapper"></div>
+            </div>
+          </div>
+
+          <button id="testDate" class="btn medium primary">날짜 셋팅하기 TEST</button>
+
+          <br /><br />
+          <div class="datepicker-container">
+            <!-- 월 달력은 month 클래스 추가 -->
+            <div class="datepicker-item month">
+              <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                <label for="datePicker03" class="form-label">월 달력 input<span class="required">*</span></label>
+                <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker03" autocomplete="off" />
+                <span class="tui-ico-date"></span>
+              </div>
+              <div class="tui-datepicker-wrapper"></div>
+            </div>
+          </div>
+
+          <br /><br />
+          <div class="datepicker-container">
+            <!-- 년도 달력은 year 클래스 추가 -->
+            <div class="datepicker-item year">
+              <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                <label for="datePicker04" class="form-label">년도 달력 input<span class="required">*</span></label>
+                <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker04" autocomplete="off" />
+                <span class="tui-ico-date"></span>
+              </div>
+              <div class="tui-datepicker-wrapper"></div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          // 날짜 셋팅하기 샘플 스크립트
+          var datePicker02 = window.datePicker('#datePicker02');
+
+          datePicker02.on('change', function () {
+            console.log('change');
+          });
+
+          $('#testDate').on('click', function () {
+            datePicker02.setDate(new Date('2023-09-19'));
+
+            inputActiveHandler();
+          });
+
+          // 날짜 비활성화
+          const start = new Date(new Date());
+          const end = new Date(9999, 12, 30);
+          var datePicker01 = window.datePicker('#datePicker01');
+          datePicker01.removeRange(start, end);
+        </script>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 파일업로드 input</h3>
+      <ul class="component-sub-text">
+        <li>파일을 업로드 할수 있는 input 입니다.</li>
+        <li>파일명을 바꾸는 스크립트가 페이지내에 첨부되어야 합니다.(개발 추가작업을 위함)</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <div class="input-cover float">
+            <label for="fileUpload" class="form-label">첨부파일<span class="required">*</span></label>
+            <div class="file-wrapper">
+              <input type="text" class="form-input result-file-input" value="" readonly="" autocomplete="off" />
+              <input type="file" id="fileAttach" name="fileAttach" title="파일업로드" class="file-input" />
+              <label for="fileAttach" class="file-label btn medium lightSlightly">업로드</label>
+            </div>
+            <div class="form-guide-text font warning">※ 안내문구입니다.</div>
+          </div>
+
+          <script>
+            $(document).ready(function () {
+              fileAttach();
+            });
+            function fileAttach() {
+              $(document).on('change', 'input.file-input', function () {
+                var $tg = $(this);
+                var $name = $tg.val().split('\\').pop();
+
+                $tg.closest('.input-cover').addClass('active').find('.result-file-input').val($name);
+              });
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- textarea</h3>
+      <ul class="component-sub-text">
+        <li>textarea 입니다.</li>
+        <li>사이즈 - full / sm / md / lg</li>
+        <li>data-maxlength 속성에 글자수를 넣어주시면 됩니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <h4>라벨 있는경우</h4>
+          <div class="input-cover float">
+            <label for="textarea01" class="form-label">라벨입니다</label>
+            <div class="length-check-cover">
+              <textarea id="textarea01" class="form-textarea full length-check-item input-active" data-maxLength="1000"></textarea>
+              <div class="count-area">
+                <div class="count"></div>
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="length-check-cover">
+            <textarea class="form-textarea full length-check-item" data-maxlength="1000" placeholder="주 내용을 입력해 주세요."></textarea>
+            <div class="count"></div>
+          </div>
+
+          <br />
+
+          <textarea class="form-textarea full sm" placeholder="주 내용을 입력해 주세요."></textarea>
+          <br />
+          <textarea class="form-textarea full md" placeholder="주 내용을 입력해 주세요."></textarea>
+          <br />
+          <textarea class="form-textarea full lg" placeholder="주 내용을 입력해 주세요."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

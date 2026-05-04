@@ -1,0 +1,16 @@
+// 폰트
+@use './fonts/notosans';
+// reset
+@use './utils/reset';
+// // 컴포넌트
+@use './components/components';
+// // 레이어팝업
+@use './components/layer-popup';
+// // 애니메이션
+@use './components/animation';
+// // 공통
+@use './views/common';
+// // 레이아웃
+@use './views/layout';
+// // 메인
+@use './views/main';

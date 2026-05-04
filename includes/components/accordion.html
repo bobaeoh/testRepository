@@ -1,0 +1,42 @@
+<div class="component-content" id="componentAccordion">
+  <div class="component-item">
+    <h2 class="component-title">아코디언</h2>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 기본 아코디언</h3>
+      <ul class="component-sub-text">
+        <li>아코디언을 펼친상태에서 렌더링 하려면 <span class="font-class">.accordion-list</span>클래스에 <span class="font-class">.active</span> 클래스를 추가하고 <span class="font-class">.accordion-body</span>태그에 <span class="font-class">style="display:block"</span>속성을 넣어줘야 합니다.</li>
+        <li><span class="font-class">data-speed</span> 속성을 이용해 토글 속도를 조절할수 있습니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="accordion-container" data-speed="200">
+          <div class="accordion-list active">
+            <button type="button" class="accordion-header">아코디언 메뉴1</button>
+            <div class="accordion-body" style="display: block">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+          </div>
+          <div class="accordion-list">
+            <button type="button" class="accordion-header">아코디언 메뉴2</button>
+            <div class="accordion-body">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 항상 오픈 아코디언</h3>
+      <ul class="component-sub-text">
+        <li><span class="font-class">.accordion-container</span>클래스에 <span class="font-class">.solo</span> 클래스를 붙히면 리스트의 토글이 각각 적용됩니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="accordion-container solo" data-speed="200">
+          <div class="accordion-list active">
+            <button type="button" class="accordion-header">아코디언 메뉴1</button>
+            <div class="accordion-body" style="display: block">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+          </div>
+          <div class="accordion-list">
+            <button type="button" class="accordion-header">아코디언 메뉴2</button>
+            <div class="accordion-body">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

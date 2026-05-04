@@ -1,0 +1,110 @@
+@use '../utils/index' as *;
+
+// buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  text-align: center;
+  cursor: pointer;
+  &.small {
+    height: rem(35px);
+    padding: 0 rem(10px);
+    font-size: rem(13px);
+  }
+  &.medium {
+    height: rem(56px);
+    padding: 0 rem(13px);
+    font-size: rem(15px);
+  }
+  &.large {
+    height: rem(68px);
+    padding: 0 rem(16px);
+    font-weight: 400;
+    font-size: rem(20px);
+  }
+  &.xlarge {
+    height: rem(88px);
+    padding: 0 rem(20px);
+    font-weight: 700;
+    font-size: rem(22px);
+  }
+  &.primary {
+    background-color: $primary;
+    border-color: $primary;
+    color: #fff;
+  }
+  &.slightly {
+    background-color: #666;
+    border-color: #666;
+    color: #fff;
+  }
+  &.lightSlightly {
+    background-color: #989898;
+    border-color: #989898;
+    color: #fff;
+  }
+  &.dark {
+    background-color: $dark;
+    border-color: $dark;
+    color: #fff;
+  }
+  &.danger {
+    background-color: $danger;
+    border-color: $danger;
+    color: #fff;
+  }
+  &.warning {
+    background-color: $warning;
+    border-color: $warning;
+    color: #fff;
+  }
+  &.round {
+    &.small {
+      border-radius: 50px;
+    }
+    &.medium {
+      border-radius: 40px;
+    }
+    &.large {
+      border-radius: 30px;
+    }
+    &.xlarge {
+      border-radius: 30px;
+    }
+  }
+  &.border {
+    border: 1px solid $dark;
+    &.primary {
+      color: $primary;
+      border-color: $primary;
+      background-color: transparent;
+    }
+    &.slightly {
+      border-color: $slightly;
+      color: $slightly;
+      background-color: transparent;
+    }
+    &.lightSlightly {
+      border-color: $lightSlightly;
+      color: $lightSlightly;
+      background-color: transparent;
+    }
+    &.dark {
+      border-color: $dark;
+      color: $dark;
+      background-color: transparent;
+    }
+    &.warning {
+      border-color: $warning;
+      color: $warning;
+      background-color: transparent;
+    }
+    &.danger {
+      border-color: $danger;
+      color: $danger;
+      background-color: transparent;
+    }
+  }
+}

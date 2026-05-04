@@ -1,0 +1,32 @@
+// 기본 셋팅
+$body-base-font: 'NotoSansKR', arial, sans-serif, Arial, dotum, '돋움';
+$body-font-color: #000;
+$base-font-size: 20;
+$line-height: 1.5;
+
+// base color
+$primary: #2546cd;
+$dark: #222;
+$warning: #ff9582;
+$slightly: #888;
+$lightSlightly: #a1a1a1;
+$danger: #e0012b;
+
+// point color
+$blue: #a0afc1;
+
+// 미디어쿼리 사이즈
+$tb-l: 1320px;
+$tb-s: 1000px;
+$mo-l: 720px;
+$mo-s: 400px;
+
+// 이미지 url
+$baseUrl: '../images/';
+
+// 공통레이아웃 사이즈
+$layoutSize: 1240px;
+
+/* 최대 화면 크기 설정 */
+$vw-pc-size: 1440; // 디자인 사이즈
+$vw-mo-size: 360; // 디자인 사이즈

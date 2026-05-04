@@ -1,0 +1,248 @@
+@use '../utils/index' as *;
+
+// 공통 scss
+
+$scrollbarWidth: 8px;
+
+// 스크롤바 css
+::-webkit-scrollbar {
+  width: $scrollbarWidth;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1); /*스크롤바의 색상*/
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ddd; /*스크롤바 트랙 색상*/
+}
+
+// swiper 슬라이드
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+  .swiper-button-next,
+  .swiper-button-prev {
+    @include size(70px);
+    text-indent: -9999px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    &:after {
+      display: none;
+    }
+  }
+  .swiper-button-next {
+    transform: rotate(180deg);
+    @include background-image('icon/icon-slider-arrow-next-bk-70x70.png');
+  }
+  .swiper-button-prev {
+    @include background-image('icon/icon-slider-arrow-prev-bk-70x70.png');
+  }
+  .swiper-pagination {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0 !important;
+    margin-top: 20px;
+    .swiper-pagination-bullet {
+      display: block;
+    }
+  }
+}
+
+// body, html 스크롤 막기
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+  &.scroll-disable {
+    overflow: hidden !important;
+    &.responsive-scroll {
+      @media (min-width: 961px) {
+        overflow: visible !important;
+      }
+    }
+  }
+}
+
+// 아코디언
+.accordion-list {
+  overflow: hidden;
+  &.active {
+    .accordion-header {
+      &:after {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+  .accordion-header {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: rem(20px) rem(60px) rem(20px) rem(20px);
+    text-align: left;
+    &:after {
+      display: block;
+      content: '';
+      @include size(rem(20px));
+      position: absolute;
+      top: 50%;
+      right: rem(24px);
+      transform: translateY(-50%);
+      @include background-image('icon/icon-arrow-down-bk-18x18.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+  }
+  .accordion-body {
+    display: none;
+  }
+}
+
+// 모바일,pc 구분
+.mobile-show {
+  display: none;
+}
+@media (max-width: $mo-l) {
+  .pc-show {
+    display: none;
+  }
+  .mobile-show {
+    display: block;
+  }
+}
+
+// 탭컨텐츠
+.ui-tab-content {
+  display: none;
+  &:nth-of-type(1) {
+    display: block;
+  }
+}
+
+.tui-datetime-input {
+  width: 100%;
+  height: auto;
+}
+.tui-datepicker {
+  z-index: 10;
+  font-size: rem(14px);
+  &.tui-hidden {
+    display: none;
+  }
+  * {
+    font-size: inherit;
+  }
+  .tui-datepicker-footer {
+    .tui-timepicker {
+      padding: 10px;
+    }
+  }
+  .tui-timepicker-select {
+    width: 64px;
+    height: 32px;
+  }
+  .tui-calendar-sat {
+    color: #1c74bc;
+  }
+  .tui-calendar-sun {
+    color: #fc2222;
+  }
+  .tui-is-blocked {
+    color: #ddd !important;
+  }
+  .tui-calendar-today {
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid rgba($primary, 0.4);
+    border-radius: 50%;
+    color: $primary;
+    &:hover {
+      background-color: #fff;
+    }
+  }
+  .tui-is-selectable.tui-is-selected,
+  .tui-is-selectable.tui-is-selected {
+    background-color: $primary !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #fff !important;
+  }
+}
+.tui-timepicker-select {
+  font-size: rem(14px) !important;
+}
+.tui-datepicker-input {
+  border: 0;
+  .datepicker-input {
+    font-size: rem(15px);
+  }
+  .tui-ico-date {
+    right: rem(12px);
+    bottom: rem(10px);
+    background-position: -17px -14px !important;
+  }
+}
+.tui-datepicker-type-date {
+  width: 245px;
+}
+.tui-calendar {
+  width: 100%;
+  th,
+  td {
+    height: 35px;
+  }
+}
+.tui-datepicker-body .tui-timepicker,
+.tui-datepicker-footer .tui-timepicker {
+  width: 100%;
+}
+
+// 에디터 내부의 reset
+#content .fr-view {
+  // font-size: 15px;
+  html,
+  body,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  li,
+  table,
+  tr,
+  td,
+  dl,
+  dt,
+  dd,
+  a,
+  img,
+  input,
+  button,
+  select,
+  textarea {
+    list-style: revert-layer;
+    font-family: $body-base-font;
+    font-size: revert;
+    font-weight: revert;
+    line-height: revert;
+    text-decoration: revert;
+    letter-spacing: revert;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  ol,
+  ul {
+    padding-inline-start: rem(15px);
+  }
+}

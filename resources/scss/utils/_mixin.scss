@@ -1,0 +1,192 @@
+// config
+@use 'sass:list';
+@use 'sass:math';
+@use './config' as *;
+
+// 배경이미지 함수 (속성 따로 쓸 경우)
+@mixin background-image($imageUrl) {
+  background-image: url($baseUrl + $imageUrl);
+}
+// 배경이미지 함수 (속성 같이 쓸 경우)
+@mixin background($imageUrl, $x: 0, $y: 0) {
+  background: url($baseUrl + $imageUrl) no-repeat $x $y;
+}
+
+// 시각적으로 숨기고, 스크린리더에서는 이용가능:
+@mixin blind() {
+  position: absolute !important;
+  display: block;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  &.focusable:active,
+  &.focusable:focus {
+    position: static;
+    height: auto;
+    width: auto;
+    margin: 0;
+    clip: auto;
+    overflow: visible;
+  }
+}
+
+// 박스사이징
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+// 요소를 중앙으로
+@mixin centerMode() {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+// 한줄 말줄임
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+// 여러말 말줄임
+@mixin multi-ellipsis($line: 2, $line-height: 1.5, $height-fixed: false) {
+  display: block;
+  display: -webkit-box;
+  @if $height-fixed == true {
+    // 유동적인 경우 사용
+    height: ($line * $line-height) * 1em;
+    max-height: ($line * $line-height) * 1em;
+  } @else {
+    max-height: ($line * $line-height) * 1em;
+  }
+  text-overflow: ellipsis;
+  line-height: $line-height * 1em;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+// placeholder 컬러 사용
+@mixin placeholder($color: #999) {
+  &::-webkit-input-placeholder {
+    // Chrome/Opera/Safari
+    color: $color;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    // Firefox 19+
+    color: $color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    // IE 10+
+    color: $color;
+    opacity: 1;
+  }
+  &:-moz-placeholder {
+    // Firefox 18-
+    color: $color;
+    opacity: 1;
+  }
+  &::placeholder {
+    // Firefox 18-
+    color: $color;
+    opacity: 1;
+  }
+}
+
+// width / height 를 편하게....
+// width, height를 같게 하려면 @include size(100px);
+// 다르게 하려면 @include size(100px, 1em);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* 전역 스위치: 딱 1번만 선언 */
+// :root {
+//   --vw-switch: 0; // 기본: px 구간
+// }
+// @media (max-width: #{$vw-viewport}) {
+//   :root {
+//     --vw-switch: 1; // vw-viewport 이하: vw 구간
+//   }
+// }
+
+/* 
+모바일에서만 vw를 사용할 경우 vw함수만 사용해도 무방
+pc와 모바일 둘다 vw를 사용할경우 pc에서는 vw함수를
+모바일에서는 vw-mo함수를 사용
+*/
+
+// 모바일 vw 사용
+// @function get-vw($px) {
+//   @return calc(($px * 100vw) / $vw-context-mo);
+// }
+
+// @mixin vw-mo($property, $values, $important: false) {
+//   $arr2: ();
+
+//   @each $value in $values {
+//     $arr2: list.append($arr2, get-vw($value)); // 모바일(vw) 값
+//   }
+
+//   #{$property}: #{$arr2}#{if($important, ' !important', '')};
+// }
+
+// // pc vw 사용
+// @function step-fluid($px) {
+//   // 720px / 360px -> 배율(단위 없는 수)
+//   $scale: math.div($vw-viewport, $vw-context);
+//   $px-desktop: $px * $scale; // px 유지
+
+//   // (px / 360px) * 100 -> 단위 없는 수(퍼센트 수치)
+//   $vw-mobile-num: math.div($px, $vw-context) * 100;
+
+//   @return calc(#{$px-desktop} * (1 - var(--vw-switch)) + #{$vw-mobile-num}vw * var(--vw-switch));
+// }
+
+// @mixin vw($property, $values, $important: false) {
+//   $out: ();
+//   @each $v in $values {
+//     $out: list.append($out, step-fluid($v));
+//   }
+//   #{$property}: #{$out}#{if($important, ' !important', '')};
+// }
+
+// Text Stroke
+// text-stroke $size는 윤곽선 두께(픽셀 단위)입니다., $step을 너무 작게 하면 그림자가 너무 많아져 렌더링 느려짐. 브라우저와 환경에 맞게 적절히 조절하세요.
+// ex) - @include text-stroke(2, white, 0, 0.25);
+@function text-stroke($size: 2, $color: #fff, $correction: 0, $step: 0.25) {
+  $radius: $size - $correction;
+  $stroke: ();
+
+  $max: math.div($size, $step);
+
+  @for $y from -$max through $max {
+    @for $x from -$max through $max {
+      $dx: $x * $step;
+      $dy: $y * $step;
+
+      @if ($dx * $dx + $dy * $dy <= $radius * $radius) and not ($dx == 0 and $dy == 0) {
+        $shadow: #{$dx}px #{$dy}px 0 #{$color};
+        $stroke: list.append($stroke, $shadow, comma);
+      }
+    }
+  }
+
+  @return $stroke;
+}
+
+@mixin text-stroke($size: 2, $color: #fff, $correction: 0, $step: 0.25) {
+  text-shadow: text-stroke($size, $color, $correction, $step);
+}

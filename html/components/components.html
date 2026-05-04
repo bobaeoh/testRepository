@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+  <meta name="title" content="" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <link rel="icon" href="../../resources/images/favicon.png" />
+  <link rel="stylesheet" href="../../resources/plugins/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../../resources/plugins/selectric/selectric.css" />
+  <link rel="stylesheet" href="../../resources/plugins/datepicker/tui-time-picker.css" />
+  <link rel="stylesheet" href="../../resources/plugins/datepicker/tui-date-picker.css" />
+  <link rel="stylesheet" href="../../resources/plugins/aos/aos.css" />
+  <link rel="stylesheet" href="../../resources/css/style.css" />
+  <script src="../../resources/plugins/jquery-3.7.1.min.js"></script>
+  <script src="../../resources/plugins/swiper/swiper-bundle.min.js"></script>
+  <script src="../../resources/plugins/selectric/jquery.selectric.js"></script>
+  <script src="../../resources/plugins/gsap/gsap.min.js"></script>
+  <script src="../../resources/plugins/aos/aos.js"></script>
+  <script src="../../resources/plugins/datepicker/tui-time-picker.js"></script>
+  <script src="../../resources/plugins/datepicker/tui-date-picker.js"></script>
+  <script src="../../resources/js/common-ui.js"></script>
+  <title>프로젝트 제목</title>
+
+</head>
+
+<body>
+  <div id="container" class="publish-gate-content">
+    <h1>컴포넌트 모음</h1>
+    <div class="component-guide-text">
+      <strong class="title">컴포넌트 페이지의 사용 의도와 활용 방법</strong>
+      <p>
+        작은 규모의 프로젝트 작업시 컴포넌트 페이지의 활용도는 높지않으나<br />
+          규모가 크고 디자인 요소의 공통부분이 많을 경우 프로젝트 초반 공통 컴포넌트를 선 개발 후 페이지 작업을 하면<br />
+        <strong>작업 속도 향상</strong> 및 <strong>코드 유지보수</strong>가 쉬워지며 다른 작업자의 백업 또는 협업시 <strong>코드 재활용성</strong>이 높아진다.
+      </p>
+    </div>
+    <div class="component-wrapper">
+      <div class="fixed-menu">
+        <ul>
+          <li><a href="#componentFont">폰트</a></li>
+          <li><a href="#componentButton">버튼</a></li>
+          <li><a href="#componentInput">폼 input</a></li>
+          <li><a href="#componentSelectBox">셀렉트박스(드롭다운)</a></li>
+          <li><a href="#componentCheckbox">체크박스/라디오버튼</a></li>
+          <li><a href="#componentAccordion">아코디언</a></li>
+          <li><a href="#componentTable">테이블</a></li>
+          <li><a href="#componentPagination">pagination</a></li>
+          <li><a href="#componentSlider">슬라이드</a></li>
+          <li>
+            <a href="#componentAos">스크롤 애니메이션(AOS)</a>
+          </li>
+          <li><a href="#componentIcon">공통 아이콘</a></li>
+        </ul>
+      </div>
+      <div class="component-container">
+        <!-- 폰트 -->
+        <div class="component-content" id="componentFont">
+          <div class="component-item">
+            <h2 class="component-title">폰트</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>폰트에 공통 색상을 줄때 사용됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <p class="font primary">primary 텍스트입니다.</p>
+                <p class="font dark">dark 텍스트입니다.</p>
+                <p class="font lightSlightly">lightSlightly 텍스트입니다.</p>
+                <p class="font slightly">slightly 텍스트입니다.</p>
+                <p class="font warning">warning 텍스트입니다.</p>
+                <p class="font danger">danger 텍스트입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 버튼 -->
+        <div class="component-content" id="componentButton">
+          <div class="component-item">
+            <h2 class="component-title">버튼</h2>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 기본</h3>
+              <ul class="component-sub-text">
+                <li>미리 정의된 버튼 스타일이 포함되어 있으며 각각의 의미와 목적에 맞게 사용하면 됩니다.</li>
+                <li>색상은 config.scss에 정의해서 사용하도록 권장합니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="btn-example">
+                  <button type="button" class="btn small primary">primary</button>
+                  <button type="button" class="btn small slightly">slightly</button>
+                  <button type="button" class="btn small lightSlightly">lightSlightly</button>
+                  <button type="button" class="btn small dark">dark</button>
+                  <button type="button" class="btn small danger">danger</button>
+                  <button type="button" class="btn small warning">warning</button>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 사이즈별 버튼</h3>
+              <ul class="component-sub-text">
+                <li>버튼의 공통 크기를 지정하여 사용할 수 있습니다.</li>
+                <li>사이즈: small / medium / large / xlarge</li>
+              </ul>
+              <div class="component-result">
+                <div class="btn-example">
+                  <button type="button" class="btn small primary">primary</button>
+                  <button type="button" class="btn medium slightly">slightly</button>
+                  <button type="button" class="btn large lightSlightly">lightSlightly</button>
+                  <button type="button" class="btn xlarge dark">dark</button>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 유형별 버튼</h3>
+              <ul class="component-sub-text">
+                <li>테두리 또는 라운드 버튼을 지정 할수 있습니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="btn-example">
+                  <button type="button" class="btn small primary border">primary</button>
+                  <button type="button" class="btn small primary round">primary</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- input -->
+        <div class="component-content" id="componentInput">
+          <div class="component-item">
+            <h2 class="component-title">폼 input</h2>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 일반</h3>
+              <ul class="component-sub-text">
+                <li>label이 있는 일반적인 input 입니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <div class="input-cover">
+                    <label for="username" class="form-label">이름<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="text" id="username" name="username" title="이름" class="form-input input-active" autocomplete="off" maxlength="10" />
+                    </div>
+                    <div class="form-guide-text font warning">※ 안내문구입니다.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 플로팅 input</h3>
+              <ul class="component-sub-text">
+                <li>label이 포커스 됐을때 플로팅되는 input 입니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <h4>- 숫자만 입력 input</h4>
+
+                  <div class="input-cover float">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="numberOnly" class="form-label">숫자만입력<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="tel" id="numberOnly" name="numberOnly" title="숫자만입력" class="form-input input-active" oninput="this.value = window.onlyNumber(this.value)" maxlength="13" autocomplete="off" />
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <h4>- 숫자만 입력 + 하이픈 자동입력 input</h4>
+
+                  <div class="input-cover float">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <div class="cover-inner">
+                      <label for="phone" class="form-label">연락처<span class="required">*</span></label>
+                      <input type="tel" id="phone" name="phone" title="연락처" class="form-input input-active" oninput="window.autoHyphen(this)" maxlength="13" autocomplete="off" />
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+                  <br />
+
+                  <h4>- 숫자만 입력 + 콤마 자동입력 input</h4>
+
+                  <div class="input-cover float right-space small">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="annualIncome" class="form-label">희망연봉(만원)<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="text" id="annualIncome" name="annualIncome" title="희망연봉(만원)" class="form-input input-active" oninput="this.value = window.numberWithCommas(window.onlyNumber(this.value))" autocomplete="off" />
+                      <span class="etc-right">
+                <span class="mode-text">만원</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <h4>- 달력 년+월+일 input</h4>
+
+                  <div class="input-cover float">
+                    <label for="dateInput" class="form-label">달력 input<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="tel" class="form-input input-active" id="dateInput" maxlength="8" placeholder="YYYY-MM-DD" oninput="window.autoDateHyphen(this)" />
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <h4>- 달력 년+월 input</h4>
+
+                  <div class="input-cover float">
+                    <label for="dateInput" class="form-label">달력 input<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="tel" class="form-input input-active" id="dateInput" maxlength="6" placeholder="YYYY-MM" oninput="window.autoDateMonthHyphen(this)" />
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <div class="input-cover float right-space">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="recommendEmail" class="form-label">추천인 이메일<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="tel" id="recommendEmail" name="recommendEmail" title="추천인 이메일" class="form-input input-active" autocomplete="off" />
+                      <span class="etc-right">
+                <span class="mode-text">@sk.com</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <div class="input-cover float right-space small type-change">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="password" class="form-label">비밀번호<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="password" title="비밀번호" class="form-input input-active" autocomplete="off" />
+                      <span class="etc-right">
+                <button type="button" class="btn-type-change">비밀번호 보기/감추기</button>
+              </span>
+                    </div>
+                  </div>
+
+                  <br />
+
+                  <!-- readonly 또는 disable일경우 -->
+                  <div class="input-cover float">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="username03" class="form-label">성명<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="text" id="username03" name="username03" title="성명" class="form-input input-active" value="홍길동" disabled autocomplete="off" />
+                      <span class="etc-right"> </span>
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+
+                  <br />
+
+                  <!-- error일경우 error 클래스 추가 -->
+                  <div class="input-cover float error">
+                    <!-- label의 for값과 input id값이 동일해야합니다. -->
+                    <label for="username04" class="form-label">성명<span class="required">*</span></label>
+                    <div class="cover-inner">
+                      <input type="text" id="username04" name="username04" title="성명" class="form-input input-active" autocomplete="off" />
+                      <span class="etc-right"> </span>
+                    </div>
+                  </div>
+                  <div class="form-guide-text">※ 안내문구입니다.</div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 버튼 input</h3>
+              <ul class="component-sub-text">
+                <li>버튼이 함께 있는 input 입니다.</li>
+                <li>버튼의 사이즈에 따라 small / medium / large 로 구분할 수 있습니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <div class="form-btn-with-container medium">
+                    <div class="input-cover medium">
+                      <div class="cover-inner">
+                        <input type="text" id="address01" name="address01" title="주소" class="form-input input-active" placeholder="주소" readonly autocomplete="off" />
+                      </div>
+                    </div>
+                    <button type="button" class="btn medium">우편번호 찾기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 달력 input</h3>
+              <ul class="component-sub-text">
+                <li>달력이 포함되어있는 input 입니다.</li>
+                <li>달력은 년 / 월 / 시간 달력으로 구분되어 있습니다.</li>
+                <li><span class="font-class">.month</span>클래스를 추가하면 월 달력이 됩니다.</li>
+                <li><span class="font-class">.time</span>클래스를 추가하면 시간 달력이 됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <div class="datepicker-container">
+                    <div class="datepicker-item">
+                      <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                        <label for="datePicker01" class="form-label">전체 달력 input<span class="required">*</span></label>
+                        <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker01" autocomplete="off" />
+                        <span class="tui-ico-date"></span>
+                      </div>
+                      <div class="tui-datepicker-wrapper"></div>
+                    </div>
+                  </div>
+                  <br /><br />
+                  <div class="datepicker-container">
+                    <!-- 시간 달력은 time 클래스 추가 -->
+                    <div class="datepicker-item time">
+                      <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                        <label for="datePicker02" class="form-label">시간 달력 input<span class="required">*</span></label>
+                        <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker02" autocomplete="off" />
+                        <span class="tui-ico-date"></span>
+                      </div>
+                      <div class="tui-datepicker-wrapper"></div>
+                    </div>
+                  </div>
+
+                  <button id="testDate" class="btn medium primary">날짜 셋팅하기 TEST</button>
+
+                  <br /><br />
+                  <div class="datepicker-container">
+                    <!-- 월 달력은 month 클래스 추가 -->
+                    <div class="datepicker-item month">
+                      <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                        <label for="datePicker03" class="form-label">월 달력 input<span class="required">*</span></label>
+                        <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker03" autocomplete="off" />
+                        <span class="tui-ico-date"></span>
+                      </div>
+                      <div class="tui-datepicker-wrapper"></div>
+                    </div>
+                  </div>
+
+                  <br /><br />
+                  <div class="datepicker-container">
+                    <!-- 년도 달력은 year 클래스 추가 -->
+                    <div class="datepicker-item year">
+                      <div class="tui-datepicker-input tui-datetime-input input-cover float">
+                        <label for="datePicker04" class="form-label">년도 달력 input<span class="required">*</span></label>
+                        <input type="text" class="datepicker-input form-input input-active" readonly id="datePicker04" autocomplete="off" />
+                        <span class="tui-ico-date"></span>
+                      </div>
+                      <div class="tui-datepicker-wrapper"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  // 날짜 셋팅하기 샘플 스크립트
+                  var datePicker02 = window.datePicker('#datePicker02');
+
+                  datePicker02.on('change', function() {
+                    console.log('change');
+                  });
+
+                  $('#testDate').on('click', function() {
+                    datePicker02.setDate(new Date('2023-09-19'));
+
+                    inputActiveHandler();
+                  });
+
+                  // 날짜 비활성화
+                  const start = new Date(new Date());
+                  const end = new Date(9999, 12, 30);
+                  var datePicker01 = window.datePicker('#datePicker01');
+                  datePicker01.removeRange(start, end);
+                </script>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 파일업로드 input</h3>
+              <ul class="component-sub-text">
+                <li>파일을 업로드 할수 있는 input 입니다.</li>
+                <li>파일명을 바꾸는 스크립트가 페이지내에 첨부되어야 합니다.(개발 추가작업을 위함)</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <div class="input-cover float">
+                    <label for="fileUpload" class="form-label">첨부파일<span class="required">*</span></label>
+                    <div class="file-wrapper">
+                      <input type="text" class="form-input result-file-input" value="" readonly="" autocomplete="off" />
+                      <input type="file" id="fileAttach" name="fileAttach" title="파일업로드" class="file-input" />
+                      <label for="fileAttach" class="file-label btn medium lightSlightly">업로드</label>
+                    </div>
+                    <div class="form-guide-text font warning">※ 안내문구입니다.</div>
+                  </div>
+
+                  <script>
+                    $(document).ready(function() {
+                      fileAttach();
+                    });
+
+                    function fileAttach() {
+                      $(document).on('change', 'input.file-input', function() {
+                        var $tg = $(this);
+                        var $name = $tg.val().split('\\').pop();
+
+                        $tg.closest('.input-cover').addClass('active').find('.result-file-input').val($name);
+                      });
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- textarea</h3>
+              <ul class="component-sub-text">
+                <li>textarea 입니다.</li>
+                <li>사이즈 - full / sm / md / lg</li>
+                <li>data-maxlength 속성에 글자수를 넣어주시면 됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <h4>라벨 있는경우</h4>
+                  <div class="input-cover float">
+                    <label for="textarea01" class="form-label">라벨입니다</label>
+                    <div class="length-check-cover">
+                      <textarea id="textarea01" class="form-textarea full length-check-item input-active" data-maxLength="1000"></textarea>
+                      <div class="count-area">
+                        <div class="count"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <br />
+
+                  <div class="length-check-cover">
+                    <textarea class="form-textarea full length-check-item" data-maxlength="1000" placeholder="주 내용을 입력해 주세요."></textarea>
+                    <div class="count"></div>
+                  </div>
+
+                  <br />
+
+                  <textarea class="form-textarea full sm" placeholder="주 내용을 입력해 주세요."></textarea>
+                  <br />
+                  <textarea class="form-textarea full md" placeholder="주 내용을 입력해 주세요."></textarea>
+                  <br />
+                  <textarea class="form-textarea full lg" placeholder="주 내용을 입력해 주세요."></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 셀렉트박스 -->
+        <div class="component-content" id="componentSelectBox">
+          <div class="component-item">
+            <h2 class="component-title">셀렉트박스(드롭다운)</h2>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 일반</h3>
+              <ul class="component-sub-text">
+                <li>일반적인 select박스 입니다.</li>
+                <li>사이즈 : small / medium / large</li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <div class="select-box-container small">
+                    <label class="form-label">일반 small<span class="required">*</span></label>
+                    <select name="select" class="form-select">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="select-box-container medium">
+                    <label class="form-label">일반 medium<span class="required">*</span></label>
+                    <select name="select" class="form-select">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="select-box-container large">
+                    <label class="form-label">일반 large<span class="required">*</span></label>
+                    <select name="select" class="form-select">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="select-box-container float medium">
+                    <label class="form-label">선택<span class="required">*</span></label>
+                    <select name="select" class="form-select float-select">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 셀렉트릭(라이브러리)</h3>
+              <ul class="component-sub-text">
+                <li>라이브러리를 이용한 select박스(드롭다운메뉴) 입니다.</li>
+                <li>사이즈 : small / medium / large / float</li>
+                <li><span class="font-class">.selectric</span>클래스에 <span class="font-class">.first-show</span>클래스를 넣어주면 option선택에 첫번째 옵션이 보여집니다.</li>
+                <li>
+                  비동기후 셀렉트릭 안될때(업데이트) 함수 - <strong style="color: #d8027d">window.refreshSelectric()</strong><br />
+          셀렉트릭 생성 함수- <strong style="color: #d8027d">window.selectric()</strong>
+                </li>
+              </ul>
+              <div class="component-result">
+                <div class="form-example">
+                  <strong>사이즈별 셀렉트박스</strong><br /><br />
+                  <div class="selectric-container">
+                    <select name="select" class="selectric small">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="selectric-container">
+                    <select name="select" class="selectric medium">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="selectric-container">
+                    <select name="select" class="selectric large">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                  </div>
+                  <br />
+
+                  <h4>float 셀렉트박스</h4>
+                  <div class="selectric-container">
+                    <div class="select-label">선택<span class="required">*</span></div>
+                    <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+                    <select name="select" class="selectric medium float required">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                    <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+                  </div>
+                  <br />
+
+                  <h4>셀렉트박스 타이틀있는 경우</h4>
+                  <div class="selectric-container active">
+                    <div class="select-label">선택<span class="required">*</span></div>
+                    <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+                    <select name="select" class="selectric medium float required">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                    <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+                  </div>
+                  <br />
+
+                  <h4>에러일경우</h4>
+                  <div class="selectric-container">
+                    <div class="select-label">선택<span class="required">*</span></div>
+                    <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+                    <select name="select" class="selectric medium float required" id="testSelect01">
+                      <option value="">선택</option>
+                      <option value="옵션1">옵션1</option>
+                      <option value="옵션2">옵션2</option>
+                    </select>
+                    <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+                  </div>
+
+                  <br />
+
+                  <button type="button" class="btn small danger" id="errorTest">error로 만들기</button>
+
+                  <script>
+                    $('#errorTest').on('click', function() {
+                      $('#testSelect01').addClass('error');
+                      window.refreshSelectric();
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 체크박스 & 라디오버튼 -->
+        <div class="component-content" id="componentCheckbox">
+          <div class="component-item">
+            <h2 class="component-title">체크박스/라디오버튼</h2>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 체크박스</h3>
+              <ul class="component-sub-text">
+                <li>체크박스 유형은 round / square 두가지가 있습니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="selector-wrapper">
+                  <div class="selector-cover checkbox round">
+                    <label class="label">
+                      <input type="checkbox" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                  <div class="selector-cover checkbox square">
+                    <label class="label">
+                      <input type="checkbox" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 라디오버튼</h3>
+              <ul class="component-sub-text"></ul>
+              <div class="component-result">
+                <div class="selector-wrapper">
+                  <div class="selector-cover radio">
+                    <label class="label">
+                      <input type="radio" name="radio01" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                  <div class="selector-cover radio">
+                    <label class="label">
+                      <input type="radio" name="radio01" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 가로형</h3>
+              <ul class="component-sub-text">
+                <li><span class="font-class">.horizontal</span> 클래스를 추가하면 가로형이 됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="selector-wrapper horizontal">
+                  <div class="selector-cover checkbox round">
+                    <label class="label">
+                      <input type="checkbox" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                  <div class="selector-cover checkbox round">
+                    <label class="label">
+                      <input type="checkbox" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      selector
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 라벨없음</h3>
+              <ul class="component-sub-text">
+                <li>라벨이 없는 경우 <span class="font-class">.solo</span> 클래스를 추가하면 됩니다.</li>
+                <li>라벨이 없어도 label 태그는 존재해야 합니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="selector-wrapper">
+                  <div class="selector-cover checkbox round solo">
+                    <label class="label">
+                      <input type="checkbox" />
+                      <span class="selector-text">
+                <span class="selector"></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 아코디언 -->
+        <div class="component-content" id="componentAccordion">
+          <div class="component-item">
+            <h2 class="component-title">아코디언</h2>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 기본 아코디언</h3>
+              <ul class="component-sub-text">
+                <li>아코디언을 펼친상태에서 렌더링 하려면 <span class="font-class">.accordion-list</span>클래스에 <span class="font-class">.active</span> 클래스를 추가하고 <span class="font-class">.accordion-body</span>태그에 <span class="font-class">style="display:block"</span>속성을 넣어줘야 합니다.</li>
+                <li><span class="font-class">data-speed</span> 속성을 이용해 토글 속도를 조절할수 있습니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="accordion-container" data-speed="200">
+                  <div class="accordion-list active">
+                    <button type="button" class="accordion-header">아코디언 메뉴1</button>
+                    <div class="accordion-body" style="display: block">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+                  </div>
+                  <div class="accordion-list">
+                    <button type="button" class="accordion-header">아코디언 메뉴2</button>
+                    <div class="accordion-body">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="component-body">
+              <h3 class="component-sub-title">- 항상 오픈 아코디언</h3>
+              <ul class="component-sub-text">
+                <li><span class="font-class">.accordion-container</span>클래스에 <span class="font-class">.solo</span> 클래스를 붙히면 리스트의 토글이 각각 적용됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="accordion-container solo" data-speed="200">
+                  <div class="accordion-list active">
+                    <button type="button" class="accordion-header">아코디언 메뉴1</button>
+                    <div class="accordion-body" style="display: block">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+                  </div>
+                  <div class="accordion-list">
+                    <button type="button" class="accordion-header">아코디언 메뉴2</button>
+                    <div class="accordion-body">This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 테이블 -->
+        <div class="component-content" id="componentTable">
+          <div class="component-item">
+            <h2 class="component-title">테이블</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>일반적인 테이블 형태 구조입니다.</li>
+                <li><span class="font-class">.center</span>클래스를 추가하면 텍스트 가운데 정렬을 할수 있습니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="data-table">
+                  <table>
+                    <caption>
+                      테이블제목
+                    </caption>
+                    <colgroup>
+                      <col style="width: 10%" />
+                      <col />
+                      <col style="width: 30%" />
+                      <col style="width: 30%" />
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" class="center">번호</th>
+                        <th scope="col" class="center">제목</th>
+                        <th scope="col" class="center">내용</th>
+                        <th scope="col" class="center">내용</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="center">1</td>
+                        <td class="center">내용</td>
+                        <td class="center">내용</td>
+                        <td class="center">내용</td>
+                      </tr>
+                      <tr>
+                        <td class="center">1</td>
+                        <td class="center">내용</td>
+                        <td class="center">내용</td>
+                        <td class="center">내용</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="component-content" id="componentPagination">
+          <div class="component-item">
+            <h2 class="component-title">pagination</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>리스트의 공통 페이징입니다.</li>
+                <li>이전이나 다음페이지가 없을경우<span class="font-class">.controller</span> 클래스에 <span class="font-class">.disabled</span> 클래스를 붙히면 버튼이 비활성화 됩니다.</li>
+              </ul>
+              <div class="component-result">
+                <ul class="pagination">
+                  <li class="controller first disabled"><a href="javascript:void(0);" class="page-link">처음으로</a></li>
+                  <li class="controller prev disabled"><a href="javascript:void(0);" class="page-link">이전으로</a></li>
+                  <li class="paging current"><a href="javascript:void(0);" class="page-link">1</a></li>
+                  <li class="paging"><a href="javascript:void(0);" class="page-link">2</a></li>
+                  <li class="controller next"><a href="javascript:void(0);" class="page-link">다음으로</a></li>
+                  <li class="controller last"><a href="javascript:void(0);" class="page-link">마지막으로</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 슬라이더 -->
+        <div class="component-content" id="componentSlider">
+          <div class="component-item">
+            <h2 class="component-title">슬라이드(swiper.js)</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>비동기 후 슬라이드 안될때(업데이트) 함수 - <strong style="color: #d8027d">window.sliderUpdate()</strong></li>
+                <li><span class="font-class">.swiper-container</span>클래스에 슬라이드별로 클래스를 추가해 사용해주세요.</li>
+                <li>슬라이드 스크립트 및 옵션은 common-ui.js를 참고해주세요.</li>
+              </ul>
+              <div class="component-result">
+                <div class="swiper-container slider-example">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../resources/images/_temp/img-temp-01.jpg" alt="" /></div>
+                    <div class="swiper-slide"><img src="../../resources/images/_temp/img-temp-02.jpg" alt="" /></div>
+                    <div class="swiper-slide"><img src="../../resources/images/_temp/img-temp-03.jpg" alt="" /></div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 스크롤 애니메이션(AOS) -->
+        <div class="component-content" id="componentAos">
+          <div class="component-item">
+            <h2 class="component-title">스크롤 애니메이션(AOS.js)</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>스크롤 애니메이션 라이브러리 입니다.</li>
+                <li>사용설명서 - <a href="https://github.com/michalsnik/aos" target="_blank" style="text-decoration: underline">https://github.com/michalsnik/aos</a></li>
+              </ul>
+              <div class="component-result">
+                <div class="component-aos-sample">
+                  <div class="component-aos-item" data-aos="fade-up" data-aos-offset="10" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="center-bottom"></div>
+                  <div class="component-aos-item" data-aos="fade-up-left"></div>
+                  <div class="component-aos-item" data-aos="fade-up-right"></div>
+
+                  <div class="scroll-animate component-aos-item" data-animation="fade-in-top">애니메이션1</div>
+                  <div class="scroll-animate component-aos-item" data-animation="fade-in-left">애니메이션2</div>
+                  <div class="scroll-animate component-aos-item" data-animation="fade-in-bottom">애니메이션3</div>
+                  <div class="scroll-animate component-aos-item" data-animation="fade-in-right">애니메이션4</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            .component-aos-item {
+              width: 400px;
+              height: 300px;
+              background-color: #ddd;
+            }
+
+            .component-aos-item+.component-aos-item {
+              margin-top: 100px;
+            }
+          </style>
+        </div>
+
+        <!-- 공통아이콘 -->
+        <div class="component-content common-icon" id="componentIcon">
+          <div class="component-item">
+            <h2 class="component-title">공통 아이콘</h2>
+            <div class="component-body">
+              <ul class="component-sub-text">
+                <li>프로젝트에 필요한 공통 아이콘등을 모아두는 곳입니다.</li>
+                <li>공통이 많은 프로젝트 또는 협업을 할경우 아이콘을 모아두면 효율적 사용이 가능합니다.</li>
+              </ul>
+              <div class="component-result">
+                <div class="common-icon-part">
+                  <h4>- 숫자 카운팅</h4>
+                  <div class="number-count" data-number="3333">0</div>
+                  <button type="button" class="btn medium primary" onclick="numberCounter('.number-count')">카운트 버튼</button>
+                </div>
+                <div class="common-icon-part">
+                  <h4>- 햄버거메뉴 버튼</h4>
+                  <button type="button" class="mobile-navigation-menu" id="btnMobileMenu" onclick="mobileMenuController.toggle('#btnMobileMenu','', true)">
+                    <span class="icon"></span>
+                  </button>
+                </div>
+                <div class="common-icon-part">
+                  <h4>- 전체메뉴</h4>
+                  <button type="button" class="mobile-navigation-menu" id="btnAllmenuOpen" onclick="mobileMenuController.open('','#allMenuContainer')">
+                    <span class="icon"></span>
+                  </button>
+                  <div class="all-menu-container" id="allMenuContainer">
+                    <div class="menu-inner">
+                      <div class="menu-wrapper">
+                        <div class="menu-header">
+                          <button type="button" class="btn-menu-close" onclick="mobileMenuController.close('#btnAllmenuOpen', '#allMenuContainer')"><span>닫기</span></button>
+                        </div>
+                        <ul class="menu-list">
+                          <li class="all-menu-item">
+                            <a href="javascript:void(0);"> 메뉴1</a>
+                          </li>
+                          <li class="all-menu-item">
+                            <a href="javascript:void(0);"> 메뉴2</a>
+                          </li>
+                          <li class="all-menu-item">
+                            <a href="javascript:void(0);"> 메뉴3</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="common-icon-part">
+                  <h4>- 스위치 아이콘</h4>
+                  <div class="switch-container">
+                    <div class="switch-icon">
+                      <input type="checkbox" id="switch01" class="switch-input" />
+                      <label for="switch01" class="switch-label">
+                        <div class="switch-button">
+                          <span class="btn-on-off">on/off 버튼</span>
+                        </div>
+                        <span class="switch-text">온라인만 보기</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="common-icon-part">
+                  <h4>- 별점 선택</h4>
+                  <div class="rating-select-container">
+                    <input type="radio" id="ratingStar01" name="ratingStar" />
+                    <label for="ratingStar01">1점</label>
+                    <input type="radio" id="ratingStar02" name="ratingStar" />
+                    <label for="ratingStar02">2점</label>
+                    <input type="radio" id="ratingStar03" name="ratingStar" />
+                    <label for="ratingStar03">3점</label>
+                    <input type="radio" id="ratingStar04" name="ratingStar" />
+                    <label for="ratingStar04">4점</label>
+                    <input type="radio" id="ratingStar05" name="ratingStar" checked />
+                    <label for="ratingStar05">5점</label>
+                  </div>
+                </div>
+
+                <div class="common-icon-part">
+                  <h4>- 타겟 외 클릭시 닫기</h4>
+                  <div class="common-write-history">
+                    <button type="button" class="btn-history">작성 이력</button>
+                    <div class="history-popup">팝업 입니다.</div>
+                  </div>
+
+                  <style>
+                    .common-write-history {
+                      position: relative;
+                    }
+
+                    .common-write-history .btn-history {
+                      width: 60px;
+                      height: 40px;
+                      background-color: skyblue;
+                      font-size: 12px;
+                    }
+
+                    .common-write-history .history-popup {
+                      display: none;
+                      position: absolute;
+                      bottom: 100%;
+                      left: 0;
+                      padding: 20px;
+                      background-color: #ddd;
+                    }
+
+                    .common-write-history .history-popup.active {
+                      display: block;
+                    }
+                  </style>
+
+                  <script>
+                    $(document).ready(function() {
+                      $('body').on('click', '.common-write-history .btn-history', function() {
+                        $(this).closest('.common-write-history').find('.history-popup').toggleClass('active');
+                      });
+
+                      window.bodyToggleFn('historyPopup', $('.common-write-history .btn-history'), $('.common-write-history .history-popup'), function(target, element) {
+                        $(element).removeClass('active');
+                      });
+                    });
+                  </script>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('.btn-toggle').on('click', function() {
+      $(this).toggleClass('hide').closest('.component-code-header').next('.component-code-body').toggle();
+
+      if ($(this).hasClass('hide')) {
+        $(this).text('코드 열기');
+      } else {
+        $(this).text('코드 접기');
+      }
+    });
+
+    $('.fixed-menu li a').on('click', function(e) {
+      e.preventDefault();
+      var _id = $(this).attr('href');
+      scorllMoveTo(_id, 0, 200);
+    });
+
+    function scorllMoveTo(id, between, speed) {
+      var _id = id.replace('#', '');
+      var offset = _id ? $('#' + _id).offset().top : 0;
+      var _between = between ? between : 0;
+      var _speed = speed ? speed : 300;
+      $('html, body').animate({
+        scrollTop: offset - _between
+      }, _speed);
+    }
+
+    $(window).on('scroll', function() {
+      scrollFn();
+    });
+
+    function scrollFn() {
+      $('.component-content').each(function() {
+        var _offset = parseInt($(this).offset().top);
+        var _sct = $(window).scrollTop();
+        if (_sct >= _offset) {
+          var _index = $(this).index();
+          $('.fixed-menu li').removeClass('active');
+          $('.fixed-menu li').eq(_index).addClass('active');
+        } else if (_sct + $(window).height() >= $(document).height()) {
+          $('.fixed-menu li').removeClass('active');
+          $('.fixed-menu li')
+            .eq($('.component-content').length - 1)
+            .addClass('active');
+        }
+      });
+    }
+  </script>
+
+  <style>
+    .publish-gate-content {
+      width: 1600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1620px) {
+      .publish-gate-content {
+        width: 100%;
+        padding: 0 12px;
+      }
+    }
+
+    .publish-gate-content h1 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .publish-gate-content .component-guide-text {
+      padding: 20px;
+      background-color: #f1f1f1;
+      color: #009aff;
+    }
+
+    .publish-gate-content .component-guide-text .title {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .publish-gate-content .component-guide-text p {
+      font-size: 16px;
+    }
+
+    .publish-gate-content .component-wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      margin-top: 60px;
+    }
+
+    .publish-gate-content .fixed-menu {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 20px;
+      left: 0;
+      width: 190px;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+    }
+
+    .publish-gate-content .fixed-menu li {
+      padding-left: 12px;
+      position: relative;
+      font-size: 0;
+    }
+
+    .publish-gate-content .fixed-menu li+li {
+      margin-top: 12px;
+    }
+
+    .publish-gate-content .fixed-menu li:before {
+      display: block;
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      background-color: #009aff;
+    }
+
+    .publish-gate-content .fixed-menu li:hover a,
+    .publish-gate-content .fixed-menu li.active a {
+      font-weight: bold;
+      color: #009aff;
+      border-bottom-color: #009aff;
+    }
+
+    .publish-gate-content .fixed-menu a {
+      display: inline-block;
+      font-size: 16px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .publish-gate-content .component-container {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      margin-left: 80px;
+      padding-bottom: 80px;
+      overflow: auto;
+    }
+
+    .publish-gate-content .component-title {
+      position: relative;
+      font-weight: bold;
+      font-size: 40px;
+      color: #009aff;
+    }
+
+    .publish-gate-content .component-content+.component-content {
+      margin-top: 80px;
+    }
+
+    .publish-gate-content .component-content.common-icon .component-result {
+      border-radius: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .publish-gate-content .component-body {
+      margin-top: 22px;
+    }
+
+    .publish-gate-content .component-body+.component-body {
+      margin-top: 50px;
+    }
+
+    .publish-gate-content .component-sub-title {
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .publish-gate-content .component-sub-title+.component-sub-text {
+      margin-top: 16px;
+    }
+
+    .publish-gate-content .component-sub-text li {
+      position: relative;
+      padding-left: 10px;
+      font-size: 16px;
+    }
+
+    .publish-gate-content .component-sub-text li+li {
+      margin-top: 6px;
+    }
+
+    .publish-gate-content .component-sub-text li:before {
+      display: block;
+      content: '';
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      top: 11px;
+      left: 0;
+      border-radius: 50%;
+      background-color: #222;
+    }
+
+    .publish-gate-content .component-result {
+      padding: 28px 24px;
+      margin-top: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .publish-gate-content .component-result .btn-example .btn {
+      margin-right: 5px;
+    }
+
+    .publish-gate-content .component-result .form-example {
+      max-width: 600px;
+    }
+
+    .publish-gate-content .component-result .form-example h4 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .publish-gate-content .component-result .accordion-list {
+      border: 1px solid #ddd;
+    }
+
+    .publish-gate-content .component-result .accordion-list+.accordion-list {
+      border-top: 0;
+    }
+
+    .publish-gate-content .component-result .accordion-list.active .accordion-header {
+      background-color: #f1f1f1;
+    }
+
+    .publish-gate-content .component-result .accordion-body {
+      padding: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    .publish-gate-content .component-result .swiper-container {
+      max-width: 376px;
+      margin: 0 auto;
+    }
+
+    .publish-gate-content .component-result .swiper-container img {
+      width: 100%;
+    }
+
+    .publish-gate-content .component-result .common-icon-part h4 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .publish-gate-content .component-result .common-icon-part+.common-icon-part {
+      margin-top: 32px;
+    }
+
+    .publish-gate-content .component-code {
+      border: 1px solid #ddd;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .publish-gate-content .component-code pre,
+    .publish-gate-content .component-code td {
+      font-size: 16px;
+    }
+
+    .publish-gate-content .component-code td {
+      padding: 14px 8px !important;
+    }
+
+    .publish-gate-content .component-code * {
+      word-break: break-all !important;
+    }
+
+    .publish-gate-content .component-code-header {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: #f1f1f1;
+    }
+
+    .publish-gate-content .component-code-header .text {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .publish-gate-content .component-code-header .btn-toggle {
+      margin-left: 12px;
+      padding: 5px 8px;
+      background-color: #000;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    .publish-gate-content .component-code-body {
+      padding: 24px;
+    }
+
+    .publish-gate-content .example-mobile-menu {
+      height: 300px;
+      border: 1px solid #ddd;
+      position: relative;
+    }
+  </style>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    @@include('resources.html')
+  </head>
+
+  <body>
+    <div id="container" class="popup-list-container">
+      <div class="section-inner">
+        <h1>팝업 모음</h1>
+        <div class="notice">
+          <ul>
+            <li><strong>* 프로젝트의 모든 팝업을 확인할수 있는 페이지 입니다.</strong></li>
+            <li>* 팝업 열기 함수 - <strong style="color: #d8027d">layerPopup.openPopup('팝업아이디')</strong></li>
+            <li>* 특정 팝업 닫기 함수 - <strong style="color: #d8027d">layerPopup.closePopup('팝업아이디')</strong></li>
+            <li>* 전체 팝업 닫기 함수 - <strong style="color: #d8027d">layerPopup.closeAllPopup()</strong></li>
+            <li>
+              * dim을 눌렀을때 팝업이 닫히지 않게끔 하기위해서<br />
+              두번째 인자로 true값을 줍니다.<strong style="color: #d8027d">layerPopup.openPopup('팝업아이디', true)</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="switch-container" style="margin-bottom: 20px">
+          <div class="switch-icon">
+            <input type="checkbox" id="popupTypeChange" class="switch-input" />
+            <label for="popupTypeChange" class="switch-label">
+              <div class="switch-button">
+                <span class="btn-on-off">on/off 버튼</span>
+              </div>
+              <strong class="switch-text">팝업 전체 펼쳐 보기</strong>
+            </label>
+          </div>
+        </div>
+        <div class="list-container">
+          <div class="list-item">
+            <h2 class="list-type">팝업 타입</h2>
+            <div class="list-row">
+              <div class="name">내부스크롤 팝업</div>
+              <button type="button" class="btn small primary" onclick="layerPopup.openPopup('layerPopup01', true, this)">확인</button>
+            </div>
+            <div class="list-row">
+              <div class="name">풀스크롤 팝업</div>
+              <button type="button" class="btn small primary" onclick="layerPopup.openPopup('fullScrollPopup', true, this)">확인</button>
+            </div>
+          </div>
+          <div class="list-item">
+            <h2 class="list-type">공통 팝업</h2>
+            <div class="list-row">
+              <div class="name">alert 팝업</div>
+              <button type="button" class="btn small primary" onclick="layerPopup.openPopup('systemAlertPopup', true, this)">확인</button>
+            </div>
+            <div class="list-row">
+              <div class="name">confirm 팝업</div>
+              <button type="button" class="btn small primary" onclick="layerPopup.openPopup('systemConfirmPopup', true, this)">확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- alert 팝업 -->
+    @@include('popup/system-alert-popup.html')
+    <!-- confirm 팝업 -->
+    @@include('popup/system-confirm-popup.html')
+    <!-- 내부스크롤 팝업 -->
+    @@include('popup/sample-popup.html')
+    <!-- 풀 스크롤 팝업 -->
+    @@include('popup/full-scroll-popup.html')
+  </body>
+
+  <style>
+    #container {
+      min-height: auto;
+    }
+    .section-inner {
+      width: 700px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .section-inner {
+        width: 100%;
+      }
+    }
+    .popup-list-container h1 {
+      margin: 20px 0;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .popup-list-container .notice {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+    .popup-list-container .notice li {
+      font-size: 14px;
+    }
+    .popup-list-container .list-type {
+      padding: 8px 20px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      background-color: #f1f1f1;
+    }
+    .popup-list-container .list-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 0;
+      border-top: 1px solid #ddd;
+    }
+    .popup-list-container .name {
+      padding-left: 20px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+    .popup-list-container .btn-open {
+      display: block;
+      margin: 10px;
+      border-bottom: 1px solid #ddd;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    // 팝업을 한눈에 보기위한 코드
+    $(function () {
+      $('#popupTypeChange').on('change', function () {
+        if ($(this).prop('checked')) {
+          $('.list-container').hide();
+          $('.layer-popup').addClass('all-show');
+        } else {
+          $('.list-container').show();
+          $('.layer-popup').removeClass('all-show');
+        }
+      });
+    });
+  </script>
+</html>

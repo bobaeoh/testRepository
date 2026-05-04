@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    @@include('resources.html')
+  </head>
+
+  <body>
+    <div class="content publish-gate-content">
+      <h1>E-biz 퍼블리싱</h1>
+
+      <div class="component-item project-config-list">
+        <h2 class="content-title">프로젝트 환경</h2>
+        <div class="table-wrapper">
+          <table>
+            <caption>
+              프로젝트환경
+            </caption>
+            <colgroup>
+              <col style="width: 18%" />
+              <col />
+              <col style="width: 18%" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <th>작업환경</th>
+                <td>HTML5, CSS3, javascript(jquery), gulp, scss</td>
+                <th>유형</th>
+                <td>반응형 WEB</td>
+              </tr>
+              <tr>
+                <th>인코딩</th>
+                <td>UTF-8</td>
+                <th>PC웹 호환</th>
+                <td>chrome, edge, firefox</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="component-item project-file-list">
+        <h2 class="content-title">작업 리스트</h2>
+        <div class="notice-list">
+          <ul>
+            <li>* <strong>퍼블리셔</strong> 유의사항 : 작업상태는 - <strong class="font-point">미완료 / 작업중 / 작업완료</strong> 3가지로 구분해서 적어주시면 됩니다.</li>
+            <li>* <strong>개발자</strong> 유의사항 : <strong class="font-point">작업완료</strong>인 파일들만 개발 작업 부탁드립니다.</li>
+          </ul>
+        </div>
+        <div class="status-area">
+          <div class="total">총페이지 수 : <strong class="total-page">11</strong></div>
+          <div class="status">작업완료 현황 : <strong class="percent font-point">50%</strong> / 100%</div>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <caption>
+              작업리스트
+            </caption>
+            <colgroup>
+              <col style="width: 15%" />
+              <col style="width: 13%" />
+              <col style="width: 13%" />
+              <col style="width: 27%" />
+              <col style="width: 8%" />
+              <col />
+            </colgroup>
+            <thead>
+              <tr>
+                <th>메뉴 1</th>
+                <th>메뉴 2</th>
+                <th>메뉴 3</th>
+                <th>파일명(link)</th>
+                <th>작업상태</th>
+                <th>SB 이름</th>
+              </tr>
+              <tr>
+                <td class="depth-01">컴포넌트</td>
+                <td></td>
+                <td></td>
+                <td class="left"><a href="../components/components.html" class="file-link" target="_blank">components.html</a></td>
+                <td></td>
+                <td class="description left"><span>(퍼블 전용)</span> 공통 컴포넌트 모음</td>
+              </tr>
+              <tr>
+                <td class="depth-01">팝업</td>
+                <td></td>
+                <td></td>
+                <td class="left"><a href="../components/popup/popup.html" class="file-link" target="_blank">popup.html</a></td>
+                <td></td>
+                <td class="description left">프로젝트에 사용되는 팝업 모음</td>
+              </tr>
+              <tr class="check-list-item">
+                <td class="depth-01">01_메인</td>
+                <td>01_메인</td>
+                <td></td>
+                <td class="left"><a href="./01_메인/01_메인.html" class="file-link" target="_blank">메인.html</a></td>
+                <td><span class="file-status">작업완료</span></td>
+                <td class="description left"></td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $('.file-status').each(function () {
+        if ($(this).text() === '미완료') {
+          $(this).addClass('ready');
+        } else if ($(this).text() === '작업중') {
+          $(this).addClass('ing');
+        } else if ($(this).text() === '작업완료') {
+          $(this).addClass('end');
+        }
+      });
+
+      var completeCount = 0;
+      var totalList = $('.check-list-item').length;
+      $('.check-list-item').each(function () {
+        var status = $(this).find('.file-status');
+        if (status.text() === '작업완료') {
+          completeCount += 1;
+        }
+      });
+
+      $('.total-page').text(totalList);
+
+      var percent = (completeCount / totalList) * 100;
+      percent = percent.toFixed(0);
+      $('.status-area').find('.percent').text(`${percent}%`);
+    </script>
+
+    <style>
+      .publish-gate-content {
+        width: 1600px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 1620px) {
+        .publish-gate-content {
+          width: 100%;
+          padding: 0 12px;
+        }
+      }
+
+      .publish-gate-content h1 {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 42px;
+        font-weight: bold;
+      }
+
+      .publish-gate-content .component-item + .component-item {
+        margin-top: 40px;
+      }
+
+      .publish-gate-content .content-title {
+        margin-bottom: 20px;
+        padding-left: 10px;
+        position: relative;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .publish-gate-content .content-title:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 3px;
+        height: 15px;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        background-color: #000;
+      }
+
+      .publish-gate-content .notice-list {
+        padding: 18px;
+        background-color: #f1f1f1;
+      }
+
+      .publish-gate-content .notice-list li {
+        font-size: 13px;
+      }
+
+      .publish-gate-content .table-wrapper {
+        overflow: auto;
+      }
+
+      .publish-gate-content .table-wrapper .link {
+        color: #009aff;
+        border-bottom: 1px solid #009aff;
+      }
+
+      .publish-gate-content .project-config-list table {
+        width: 100%;
+        min-width: 600px;
+        table-layout: fixed;
+      }
+
+      .publish-gate-content .project-config-list table th,
+      .publish-gate-content .project-config-list table td {
+        padding: 8px 10px;
+        font-size: 13px;
+        border: 1px solid #eee;
+      }
+
+      .publish-gate-content .project-config-list table th {
+        font-weight: bold;
+        background-color: #f1f1f1;
+      }
+
+      .publish-gate-content .project-file-list .table-wrapper {
+        margin-top: 12px;
+      }
+
+      .publish-gate-content .project-file-list table {
+        width: 100%;
+        min-width: 900px;
+        table-layout: fixed;
+      }
+
+      .publish-gate-content .project-file-list table th,
+      .publish-gate-content .project-file-list table td {
+        padding: 8px 10px;
+        font-size: 13px;
+        border: 1px solid #eee;
+      }
+
+      .publish-gate-content .project-file-list table th {
+        text-align: center;
+        background-color: #222;
+        color: #fff;
+      }
+
+      .publish-gate-content .project-file-list table td {
+        text-align: center;
+        min-height: 46.5px;
+      }
+
+      .publish-gate-content .project-file-list table td.left {
+        text-align: left;
+      }
+
+      .publish-gate-content .project-file-list table td.description {
+        font-weight: bold;
+        font-size: 13px;
+      }
+
+      .publish-gate-content .project-file-list table td.description span {
+        color: #ee4811;
+      }
+
+      .publish-gate-content .project-file-list table td.depth-01 {
+        font-weight: bold;
+      }
+
+      .publish-gate-content .project-file-list table .file-link {
+        text-decoration: underline;
+        color: #009aff;
+        font-size: 13px;
+      }
+
+      .publish-gate-content .project-file-list table .file-status {
+        display: inline-block;
+        padding: 5px 0;
+        width: 66px;
+        text-align: center;
+        font-size: 13px;
+      }
+
+      .publish-gate-content .project-file-list table .file-status.ready {
+        background-color: #f1f1f1;
+      }
+
+      .publish-gate-content .project-file-list table .file-status.ing {
+        background-color: #ee4811;
+        color: #fff;
+      }
+
+      .publish-gate-content .project-file-list table .file-status.end {
+        background-color: #009aff;
+        color: #fff;
+      }
+
+      .publish-gate-content .status-area {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-top: 30px;
+      }
+
+      .publish-gate-content .status-area > div {
+        font-size: 13px;
+      }
+
+      .publish-gate-content .font-point {
+        color: #009aff;
+      }
+
+      .publish-gate-content .font-class {
+        color: #de3394;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<div class="component-content common-icon" id="componentIcon">
+  <div class="component-item">
+    <h2 class="component-title">공통 아이콘</h2>
+    <div class="component-body">
+      <ul class="component-sub-text">
+        <li>프로젝트에 필요한 공통 아이콘등을 모아두는 곳입니다.</li>
+        <li>공통이 많은 프로젝트 또는 협업을 할경우 아이콘을 모아두면 효율적 사용이 가능합니다.</li>
+      </ul>
+      <div class="component-result">
+        <div class="common-icon-part">
+          <h4>- 숫자 카운팅</h4>
+          <div class="number-count" data-number="3333">0</div>
+          <button type="button" class="btn medium primary" onclick="numberCounter('.number-count')">카운트 버튼</button>
+        </div>
+        <div class="common-icon-part">
+          <h4>- 햄버거메뉴 버튼</h4>
+          <button type="button" class="mobile-navigation-menu" id="btnMobileMenu" onclick="mobileMenuController.toggle('#btnMobileMenu','', true)">
+            <span class="icon"></span>
+          </button>
+        </div>
+        <div class="common-icon-part">
+          <h4>- 전체메뉴</h4>
+          <button type="button" class="mobile-navigation-menu" id="btnAllmenuOpen" onclick="mobileMenuController.open('','#allMenuContainer')">
+            <span class="icon"></span>
+          </button>
+          <div class="all-menu-container" id="allMenuContainer">
+            <div class="menu-inner">
+              <div class="menu-wrapper">
+                <div class="menu-header">
+                  <button type="button" class="btn-menu-close" onclick="mobileMenuController.close('#btnAllmenuOpen', '#allMenuContainer')"><span>닫기</span></button>
+                </div>
+                <ul class="menu-list">
+                  <li class="all-menu-item">
+                    <a href="javascript:void(0);"> 메뉴1</a>
+                  </li>
+                  <li class="all-menu-item">
+                    <a href="javascript:void(0);"> 메뉴2</a>
+                  </li>
+                  <li class="all-menu-item">
+                    <a href="javascript:void(0);"> 메뉴3</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="common-icon-part">
+          <h4>- 스위치 아이콘</h4>
+          <div class="switch-container">
+            <div class="switch-icon">
+              <input type="checkbox" id="switch01" class="switch-input" />
+              <label for="switch01" class="switch-label">
+                <div class="switch-button">
+                  <span class="btn-on-off">on/off 버튼</span>
+                </div>
+                <span class="switch-text">온라인만 보기</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="common-icon-part">
+          <h4>- 별점 선택</h4>
+          <div class="rating-select-container">
+            <input type="radio" id="ratingStar01" name="ratingStar" />
+            <label for="ratingStar01">1점</label>
+            <input type="radio" id="ratingStar02" name="ratingStar" />
+            <label for="ratingStar02">2점</label>
+            <input type="radio" id="ratingStar03" name="ratingStar" />
+            <label for="ratingStar03">3점</label>
+            <input type="radio" id="ratingStar04" name="ratingStar" />
+            <label for="ratingStar04">4점</label>
+            <input type="radio" id="ratingStar05" name="ratingStar" checked />
+            <label for="ratingStar05">5점</label>
+          </div>
+        </div>
+
+        <div class="common-icon-part">
+          <h4>- 타겟 외 클릭시 닫기</h4>
+          <div class="common-write-history">
+            <button type="button" class="btn-history">작성 이력</button>
+            <div class="history-popup">팝업 입니다.</div>
+          </div>
+
+          <style>
+            .common-write-history {
+              position: relative;
+            }
+            .common-write-history .btn-history {
+              width: 60px;
+              height: 40px;
+              background-color: skyblue;
+              font-size: 12px;
+            }
+            .common-write-history .history-popup {
+              display: none;
+              position: absolute;
+              bottom: 100%;
+              left: 0;
+              padding: 20px;
+              background-color: #ddd;
+            }
+            .common-write-history .history-popup.active {
+              display: block;
+            }
+          </style>
+
+          <script>
+            $(document).ready(function () {
+              $('body').on('click', '.common-write-history .btn-history', function () {
+                $(this).closest('.common-write-history').find('.history-popup').toggleClass('active');
+              });
+
+              window.bodyToggleFn('historyPopup', $('.common-write-history .btn-history'), $('.common-write-history .history-popup'), function (target, element) {
+                $(element).removeClass('active');
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

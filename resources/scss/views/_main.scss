@@ -1,0 +1,10 @@
+@use '../utils/index' as *;
+// 메인 scss
+#content {
+  font-size: rem(40px);
+}
+@media (max-width: $mo-l) {
+  #content {
+    font-size: rem(20px);
+  }
+}

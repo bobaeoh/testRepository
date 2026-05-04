@@ -1,0 +1,141 @@
+<div class="component-content" id="componentSelectBox">
+  <div class="component-item">
+    <h2 class="component-title">셀렉트박스(드롭다운)</h2>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 일반</h3>
+      <ul class="component-sub-text">
+        <li>일반적인 select박스 입니다.</li>
+        <li>사이즈 : small / medium / large</li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <div class="select-box-container small">
+            <label class="form-label">일반 small<span class="required">*</span></label>
+            <select name="select" class="form-select">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+          <div class="select-box-container medium">
+            <label class="form-label">일반 medium<span class="required">*</span></label>
+            <select name="select" class="form-select">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+          <div class="select-box-container large">
+            <label class="form-label">일반 large<span class="required">*</span></label>
+            <select name="select" class="form-select">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+          <div class="select-box-container float medium">
+            <label class="form-label">선택<span class="required">*</span></label>
+            <select name="select" class="form-select float-select">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="component-body">
+      <h3 class="component-sub-title">- 셀렉트릭(라이브러리)</h3>
+      <ul class="component-sub-text">
+        <li>라이브러리를 이용한 select박스(드롭다운메뉴) 입니다.</li>
+        <li>사이즈 : small / medium / large / float</li>
+        <li><span class="font-class">.selectric</span>클래스에 <span class="font-class">.first-show</span>클래스를 넣어주면 option선택에 첫번째 옵션이 보여집니다.</li>
+        <li>
+          비동기후 셀렉트릭 안될때(업데이트) 함수 - <strong style="color: #d8027d">window.refreshSelectric()</strong><br />
+          셀렉트릭 생성 함수- <strong style="color: #d8027d">window.selectric()</strong>
+        </li>
+      </ul>
+      <div class="component-result">
+        <div class="form-example">
+          <strong>사이즈별 셀렉트박스</strong><br /><br />
+          <div class="selectric-container">
+            <select name="select" class="selectric small">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+          <div class="selectric-container">
+            <select name="select" class="selectric medium">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+          <div class="selectric-container">
+            <select name="select" class="selectric large">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+          </div>
+          <br />
+
+          <h4>float 셀렉트박스</h4>
+          <div class="selectric-container">
+            <div class="select-label">선택<span class="required">*</span></div>
+            <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+            <select name="select" class="selectric medium float required">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+            <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+          </div>
+          <br />
+
+          <h4>셀렉트박스 타이틀있는 경우</h4>
+          <div class="selectric-container active">
+            <div class="select-label">선택<span class="required">*</span></div>
+            <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+            <select name="select" class="selectric medium float required">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+            <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+          </div>
+          <br />
+
+          <h4>에러일경우</h4>
+          <div class="selectric-container">
+            <div class="select-label">선택<span class="required">*</span></div>
+            <!-- first-show 클래스를 넣으면 첫번째 옵션이 보입니다. -->
+            <select name="select" class="selectric medium float required" id="testSelect01">
+              <option value="">선택</option>
+              <option value="옵션1">옵션1</option>
+              <option value="옵션2">옵션2</option>
+            </select>
+            <div class="form-guide-text font danger">※ 안내문구입니다.</div>
+          </div>
+
+          <br />
+
+          <button type="button" class="btn small danger" id="errorTest">error로 만들기</button>
+
+          <script>
+            $('#errorTest').on('click', function () {
+              $('#testSelect01').addClass('error');
+              window.refreshSelectric();
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
